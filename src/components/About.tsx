@@ -1,5 +1,7 @@
 
 import Section from "./Section";
+import { Button } from "./ui/button";
+import { FileText } from "lucide-react";
 
 export default function About() {
   return (
@@ -14,6 +16,13 @@ export default function About() {
             I enjoy tackling challenges and refining my skills to stay updated in the ever-evolving field of software development. 
             Currently, I am seeking an internship to apply my technical knowledge and gain practical experience.
           </p>
+          
+          <div className="flex mt-6">
+            <Button className="glass flex items-center gap-2" onClick={() => window.open("/CV-Sijan-Thapa.pdf", "_blank")}>
+              <FileText size={18} />
+              View CV
+            </Button>
+          </div>
           
           <div className="pt-6 space-y-4">
             <h3 className="text-xl font-medium">Education</h3>

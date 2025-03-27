@@ -1,7 +1,9 @@
 
 import Section from "./Section";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface Project {
   title: string;
@@ -38,13 +40,13 @@ export default function Projects() {
     }
   ];
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveProject((prev) => (prev + 1) % projects.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [projects.length]);
+  const nextProject = () => {
+    setActiveProject((prev) => (prev + 1) % projects.length);
+  };
+  
+  const prevProject = () => {
+    setActiveProject((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
   
   return (
     <Section id="projects" title="Personal Projects">
@@ -78,19 +80,24 @@ export default function Projects() {
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-medium">{projects[activeProject].title}</h3>
                 <div className="flex space-x-2">
-                  {projects.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveProject(index)}
-                      className={cn(
-                        "w-3 h-3 rounded-full transition-all duration-300",
-                        activeProject === index
-                          ? "bg-primary scale-110"
-                          : "bg-muted"
-                      )}
-                      aria-label={`View project ${index + 1}`}
-                    ></button>
-                  ))}
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="rounded-full"
+                    onClick={prevProject}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    <span className="sr-only">Previous project</span>
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="rounded-full"
+                    onClick={nextProject}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                    <span className="sr-only">Next project</span>
+                  </Button>
                 </div>
               </div>
               <p className="text-muted-foreground mt-2">

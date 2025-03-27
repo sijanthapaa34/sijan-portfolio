@@ -1,11 +1,10 @@
 
-import { cn } from "@/lib/utils";
 import Section from "./Section";
 import { useEffect, useState } from "react";
 
 interface Skill {
   name: string;
-  level: number;
+  level: string;
   category: string;
 }
 
@@ -13,14 +12,14 @@ export default function Skills() {
   const [visibleSkills, setVisibleSkills] = useState<string[]>([]);
   
   const skills: Skill[] = [
-    { name: "Java", level: 85, category: "Programming" },
-    { name: "Spring Boot", level: 80, category: "Framework" },
-    { name: "SQL (MySQL, Oracle)", level: 75, category: "Database" },
-    { name: "ORM (Hibernate, JPA)", level: 70, category: "Framework" },
-    { name: "REST API", level: 75, category: "Web" },
-    { name: "HTML, CSS", level: 65, category: "Web" },
-    { name: "Git", level: 70, category: "Tool" },
-    { name: "MS Office", level: 60, category: "Tool" },
+    { name: "Java", level: "Advanced", category: "Programming" },
+    { name: "Spring Boot", level: "Intermediate", category: "Framework" },
+    { name: "SQL (MySQL, Oracle)", level: "Intermediate", category: "Database" },
+    { name: "ORM (Hibernate, JPA)", level: "Intermediate", category: "Framework" },
+    { name: "REST API", level: "Intermediate", category: "Web" },
+    { name: "HTML, CSS", level: "Basic", category: "Web" },
+    { name: "Git", level: "Intermediate", category: "Tool" },
+    { name: "MS Office", level: "Basic", category: "Tool" },
   ];
   
   const categories = [...new Set(skills.map(skill => skill.category))];
@@ -58,29 +57,22 @@ export default function Skills() {
           </p>
           
           <div className="space-y-6 mt-8">
-            {skills.map((skill) => (
-              <div 
-                key={skill.name}
-                className="skill-item"
-                data-skill={skill.name}
-              >
-                <div className="flex justify-between mb-2">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-primary">{skill.level}%</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {skills.map((skill) => (
+                <div 
+                  key={skill.name}
+                  className="skill-item glass p-4 rounded-xl"
+                  data-skill={skill.name}
+                >
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
+                      {skill.level}
+                    </span>
+                  </div>
                 </div>
-                <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                  <div 
-                    className={cn(
-                      "h-full bg-primary rounded-full transition-all duration-1000 ease-out",
-                      visibleSkills.includes(skill.name) ? "" : "w-0"
-                    )}
-                    style={{ 
-                      width: visibleSkills.includes(skill.name) ? `${skill.level}%` : "0%" 
-                    }}
-                  ></div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         

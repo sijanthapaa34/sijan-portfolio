@@ -1,6 +1,6 @@
 
 import Section from "./Section";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -34,6 +34,20 @@ export default function Contact() {
       icon: Linkedin,
       label: "LinkedIn Profile",
       href: "https://linkedin.com/in/sijan-thapa-a00182302"
+    },
+    {
+      type: "phone",
+      value: "+977 9846030022",
+      icon: Phone,
+      label: "Call Me",
+      action: () => copyToClipboard("+977 9846030022", "phone")
+    },
+    {
+      type: "location",
+      value: "Pokhara, Nepal",
+      icon: MapPin,
+      label: "Location",
+      href: "https://maps.google.com/?q=Pokhara,Nepal"
     }
   ];
   
@@ -45,11 +59,53 @@ export default function Contact() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {contactInfo.map((contact, index) => (
+          {contactInfo.slice(0, 3).map((contact, index) => (
             <div 
               key={contact.type}
               className="relative group animate-fade-in"
               style={{ animationDelay: `${index * 200}ms` }}
+            >
+              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
+              
+              {contact.href ? (
+                <a 
+                  href={contact.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="glass p-6 rounded-2xl flex flex-col items-center text-center h-full hover:ring-2 ring-primary/30 transition-all duration-300"
+                >
+                  <contact.icon size={28} className="text-primary mb-4" />
+                  <h3 className="font-medium mb-2">{contact.label}</h3>
+                  <p className="text-sm text-muted-foreground">{contact.value}</p>
+                </a>
+              ) : (
+                <button 
+                  onClick={contact.action}
+                  className="glass p-6 rounded-2xl flex flex-col items-center text-center h-full w-full hover:ring-2 ring-primary/30 transition-all duration-300"
+                >
+                  <contact.icon size={28} className="text-primary mb-4" />
+                  <h3 className="font-medium mb-2">{contact.label}</h3>
+                  <p className="text-sm text-muted-foreground">{contact.value}</p>
+                  <span 
+                    className={cn(
+                      "mt-2 text-xs bg-primary/10 text-primary px-2 py-1 rounded-full transition-opacity",
+                      copied === contact.type ? "opacity-100" : "opacity-0"
+                    )}
+                  >
+                    Copied!
+                  </span>
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          {contactInfo.slice(3, 5).map((contact, index) => (
+            <div 
+              key={contact.type}
+              className="relative group animate-fade-in"
+              style={{ animationDelay: `${(index + 3) * 200}ms` }}
             >
               <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
               
