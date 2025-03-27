@@ -1,4 +1,3 @@
-
 import Section from "./Section";
 import { useState } from "react";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
@@ -44,6 +43,12 @@ export default function Skills() {
       description: "Familiar with React components, props, and state management"
     },
     { 
+      name: "Flutter", 
+      level: "Basic", 
+      category: "Framework",
+      description: "Experience with cross-platform mobile app development using Dart and Flutter"
+    },
+    { 
       name: "SQL (MySQL, Oracle)", 
       level: "Intermediate", 
       category: "Database",
@@ -72,12 +77,6 @@ export default function Skills() {
       level: "Intermediate", 
       category: "Tool",
       description: "Version control and collaborative development"
-    },
-    { 
-      name: "MS Office", 
-      level: "Basic", 
-      category: "Tool",
-      description: "Proficient in Word, Excel, and PowerPoint"
     }
   ];
   
