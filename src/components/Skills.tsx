@@ -1,8 +1,7 @@
-
 import Section from "./Section";
 import { useEffect, useState } from "react";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
-import { Code, Server, Database, Globe, Tool, Lightbulb } from "lucide-react";
+import { Code, Server, Database, Globe, Wrench, Lightbulb } from "lucide-react";
 
 interface Skill {
   name: string;
@@ -20,7 +19,7 @@ export default function Skills() {
     "Framework": <Server className="text-primary" size={22} />,
     "Database": <Database className="text-primary" size={22} />,
     "Web": <Globe className="text-primary" size={22} />,
-    "Tool": <Tool className="text-primary" size={22} />
+    "Tool": <Wrench className="text-primary" size={22} />
   };
   
   const skills: Skill[] = [
