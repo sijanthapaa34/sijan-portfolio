@@ -8,6 +8,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { motion } from "framer-motion";
 
 const Index = () => {
   useEffect(() => {
@@ -26,13 +27,17 @@ const Index = () => {
     <ThemeProvider>
       <div className="relative">
         <Navbar />
-        <main>
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <Hero />
           <About />
           <Skills />
           <Projects />
           <Contact />
-        </main>
+        </motion.main>
         <Footer />
       </div>
     </ThemeProvider>

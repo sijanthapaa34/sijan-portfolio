@@ -25,6 +25,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Space Grotesk', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -103,6 +104,18 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        typing: {
+          "0%": { width: "0" },
+          "100%": { width: "100%" },
+        },
+        blink: {
+          "0%, 100%": { borderColor: "transparent" },
+          "50%": { borderColor: "hsl(var(--primary))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -114,6 +127,16 @@ export default {
         "float": "float 4s ease-in-out infinite",
         "pulse": "pulse 2s ease-in-out infinite",
         "shimmer": "shimmer 2s infinite linear",
+        "marquee": "marquee 25s linear infinite",
+        "typing": "typing 3.5s steps(40, end), blink .75s step-end infinite",
+      },
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },

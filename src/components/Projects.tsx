@@ -2,14 +2,16 @@
 import Section from "./Section";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Code, Server, Database } from "lucide-react";
 import { Button } from "./ui/button";
+import { motion } from "framer-motion";
 
 interface Project {
   title: string;
   description: string;
   technologies: string[];
   highlights: string[];
+  demoLink?: string;
 }
 
 export default function Projects() {
@@ -30,12 +32,13 @@ export default function Projects() {
     {
       title: "Bank Management System (Web)",
       description: "Currently working on a web-based version of the banking system with expanded features.",
-      technologies: ["Spring Boot", "REST APIs", "MySQL", "Hibernate", "MVC"],
+      technologies: ["Spring Boot", "React", "REST APIs", "MySQL", "Hibernate", "MVC"],
       highlights: [
         "Developing a web-based interface for better user experience",
         "Implementing Spring Boot framework for backend",
         "Building RESTful APIs for client-server communication",
-        "Following the MVC architecture pattern"
+        "Following the MVC architecture pattern",
+        "Using React for the frontend interface"
       ]
     }
   ];
@@ -48,12 +51,24 @@ export default function Projects() {
     setActiveProject((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
   
+  const getIconForTech = (tech: string) => {
+    if (tech.toLowerCase().includes("java") || tech.toLowerCase().includes("spring")) {
+      return <Code className="text-primary" size={16} />;
+    } else if (tech.toLowerCase().includes("rest") || tech.toLowerCase().includes("api") || tech.toLowerCase().includes("mvc")) {
+      return <Server className="text-primary" size={16} />;
+    } else if (tech.toLowerCase().includes("sql") || tech.toLowerCase().includes("hibernate")) {
+      return <Database className="text-primary" size={16} />;
+    } else {
+      return <Code className="text-primary" size={16} />;
+    }
+  };
+  
   return (
     <Section id="projects" title="Personal Projects">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
         <div className="lg:w-1/3 animate-fade-in-left [animation-delay:300ms]">
-          <div className="glass rounded-2xl p-6">
-            <h3 className="text-xl font-medium mb-6">My Projects</h3>
+          <div className="glass rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+            <h3 className="text-xl font-medium mb-6 pb-2 border-b">My Projects</h3>
             
             <div className="space-y-4">
               {projects.map((project, index) => (
@@ -61,13 +76,19 @@ export default function Projects() {
                   key={index}
                   onClick={() => setActiveProject(index)}
                   className={cn(
-                    "w-full text-left p-4 rounded-xl transition-all duration-300",
+                    "w-full text-left p-4 rounded-xl transition-all duration-300 hover:shadow-md",
                     activeProject === index
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-primary text-primary-foreground transform scale-105"
                       : "bg-background/50 hover:bg-background"
                   )}
                 >
-                  {project.title}
+                  <div className="flex items-center">
+                    <div className={cn(
+                      "mr-3 w-3 h-3 rounded-full",
+                      activeProject === index ? "bg-white" : "bg-primary"
+                    )}></div>
+                    <span>{project.title}</span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -75,59 +96,85 @@ export default function Projects() {
         </div>
         
         <div className="lg:w-2/3 animate-fade-in-right [animation-delay:600ms]">
-          <div className="glass rounded-2xl p-8 h-full">
-            <div className="mb-6">
-              <div className="flex items-center justify-between">
-                <h3 className="text-2xl font-medium">{projects[activeProject].title}</h3>
-                <div className="flex space-x-2">
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="rounded-full"
-                    onClick={prevProject}
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                    <span className="sr-only">Previous project</span>
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="rounded-full"
-                    onClick={nextProject}
-                  >
-                    <ChevronRight className="h-4 w-4" />
-                    <span className="sr-only">Next project</span>
-                  </Button>
+          <motion.div 
+            key={activeProject}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="glass rounded-2xl p-8 h-full hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent z-0"></div>
+            <div className="relative z-10">
+              <div className="mb-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-2xl font-medium">{projects[activeProject].title}</h3>
+                  <div className="flex space-x-2">
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                      onClick={prevProject}
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                      <span className="sr-only">Previous project</span>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                      onClick={nextProject}
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                      <span className="sr-only">Next project</span>
+                    </Button>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mt-2">
+                  {projects[activeProject].description}
+                </p>
+              </div>
+              
+              <div className="mb-6">
+                <h4 className="font-medium mb-3 text-primary">Technologies Used</h4>
+                <div className="flex flex-wrap gap-2">
+                  {projects[activeProject].technologies.map((tech) => (
+                    <span 
+                      key={tech} 
+                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm flex items-center gap-1 hover:bg-primary hover:text-white transition-colors duration-300"
+                    >
+                      {getIconForTech(tech)}
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <p className="text-muted-foreground mt-2">
-                {projects[activeProject].description}
-              </p>
-            </div>
-            
-            <div className="mb-6">
-              <h4 className="font-medium mb-3">Technologies Used</h4>
-              <div className="flex flex-wrap gap-2">
-                {projects[activeProject].technologies.map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                    {tech}
-                  </span>
-                ))}
+              
+              <div>
+                <h4 className="font-medium mb-3 text-primary">Key Features</h4>
+                <ul className="space-y-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                  {projects[activeProject].highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-start group">
+                      <div className="w-2 h-2 rounded-full bg-primary mt-2 mr-2 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="group-hover:text-primary transition-colors duration-300">{highlight}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
+              
+              {projects[activeProject].demoLink && (
+                <div className="mt-6 pt-4 border-t flex justify-end">
+                  <Button 
+                    className="gap-1 hover:gap-2 transition-all duration-300"
+                    variant="outline"
+                  >
+                    <span>View Demo</span>
+                    <ExternalLink size={16} />
+                  </Button>
+                </div>
+              )}
             </div>
-            
-            <div>
-              <h4 className="font-medium mb-3">Key Features</h4>
-              <ul className="space-y-2">
-                {projects[activeProject].highlights.map((highlight, index) => (
-                  <li key={index} className="flex items-start">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2 mr-2 flex-shrink-0"></div>
-                    <p>{highlight}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </Section>
