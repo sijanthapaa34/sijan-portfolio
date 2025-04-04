@@ -230,9 +230,9 @@ export default function Skills() {
                       </HoverCardTrigger>
                       <HoverCardContent 
                         className="w-72 p-4 glass border-none"
-                        side="right"
-                        align="start"
-                        sideOffset={10}
+                        side="bottom"
+                        align="center"
+                        sideOffset={5}
                         avoidCollisions={true}
                         sticky="always"
                         style={{ zIndex: 1000 }}
