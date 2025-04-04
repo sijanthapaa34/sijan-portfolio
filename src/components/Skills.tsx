@@ -1,3 +1,4 @@
+
 import Section from "./Section";
 import { useState } from "react";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
@@ -178,7 +179,15 @@ export default function Skills() {
                               </span>
                             </div>
                           </HoverCardTrigger>
-                          <HoverCardContent className="w-72 p-4 glass border-none backdrop-blur-lg">
+                          <HoverCardContent 
+                            className="w-72 p-4 glass border-none backdrop-blur-lg"
+                            side="right"
+                            align="start" 
+                            sideOffset={10}
+                            avoidCollisions={true}
+                            sticky="always"
+                            style={{ zIndex: 1000 }}
+                          >
                             <div>
                               <h4 className="text-lg font-medium flex items-center gap-2">
                                 {categoryIcons[skill.category as keyof typeof categoryIcons]}
@@ -219,7 +228,15 @@ export default function Skills() {
                           <h4 className="font-medium">{skill.name}</h4>
                         </div>
                       </HoverCardTrigger>
-                      <HoverCardContent className="w-72 p-4 glass border-none">
+                      <HoverCardContent 
+                        className="w-72 p-4 glass border-none"
+                        side="right"
+                        align="start"
+                        sideOffset={10}
+                        avoidCollisions={true}
+                        sticky="always"
+                        style={{ zIndex: 1000 }}
+                      >
                         <h4 className="text-lg font-medium flex items-center gap-2 mb-2">
                           {skill.icon}
                           <span>{skill.name}</span>
