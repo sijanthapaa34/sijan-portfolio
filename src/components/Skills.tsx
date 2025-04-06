@@ -181,13 +181,14 @@ export default function Skills() {
                           </HoverCardTrigger>
                           <HoverCardContent 
                             className="w-72 p-4 glass border-none backdrop-blur-lg"
-                            side="right"
                             align="start" 
-                            sideOffset={10}
-                            alignOffset={-5}
-                            avoidCollisions={true}
-                            collisionPadding={{ top: 10, right: 10, bottom: 10, left: 10 }}
-                            style={{ zIndex: 1000, maxWidth: "300px" }}
+                            sideOffset={5}
+                            side="right"
+                            style={{ 
+                              zIndex: 1000, 
+                              maxWidth: "300px",
+                              position: "absolute"
+                            }}
                           >
                             <div>
                               <h4 className="text-lg font-medium flex items-center gap-2">
@@ -234,9 +235,11 @@ export default function Skills() {
                         side="bottom"
                         align="center"
                         sideOffset={5}
-                        avoidCollisions={true}
-                        sticky="always"
-                        style={{ zIndex: 1000, maxWidth: "300px" }}
+                        avoidCollisions={false}
+                        style={{ 
+                          zIndex: 1000, 
+                          maxWidth: "300px"
+                        }}
                       >
                         <h4 className="text-lg font-medium flex items-center gap-2 mb-2">
                           {skill.icon}
