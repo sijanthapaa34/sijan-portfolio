@@ -2,6 +2,7 @@
 import Section from "./Section";
 import { useState } from "react";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { Code, Server, Database, Globe, Wrench, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -160,45 +161,40 @@ export default function Skills() {
                     {skills
                       .filter(skill => skill.category === category)
                       .map(skill => (
-                        <HoverCard key={skill.name} openDelay={200} closeDelay={100}>
-                          <HoverCardTrigger asChild>
-                            <div 
-                              className="flex justify-between items-center p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200 cursor-pointer"
-                              onMouseEnter={() => setHoveredSkill(skill.name)}
-                              onMouseLeave={() => setHoveredSkill(null)}
-                            >
-                              <div className="flex items-center gap-2">
-                                <div className={`w-2 h-2 rounded-full ${
-                                  skill.level === "Advanced" ? "bg-green-500" :
-                                  skill.level === "Intermediate" ? "bg-blue-500" : "bg-purple-500"
-                                }`}></div>
-                                <span className="font-medium">{skill.name}</span>
+                        <TooltipProvider key={skill.name} delayDuration={200}>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div 
+                                className="flex justify-between items-center p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200 cursor-pointer"
+                                onMouseEnter={() => setHoveredSkill(skill.name)}
+                                onMouseLeave={() => setHoveredSkill(null)}
+                              >
+                                <div className="flex items-center gap-2">
+                                  <div className={`w-2 h-2 rounded-full ${
+                                    skill.level === "Advanced" ? "bg-green-500" :
+                                    skill.level === "Intermediate" ? "bg-blue-500" : "bg-purple-500"
+                                  }`}></div>
+                                  <span className="font-medium">{skill.name}</span>
+                                </div>
+                                <span className={`text-xs px-2 py-1 rounded-full ${getLevelColor(skill.level)}`}>
+                                  {skill.level}
+                                </span>
                               </div>
-                              <span className={`text-xs px-2 py-1 rounded-full ${getLevelColor(skill.level)}`}>
-                                {skill.level}
-                              </span>
-                            </div>
-                          </HoverCardTrigger>
-                          <HoverCardContent 
-                            className="w-72 p-4 glass border-none backdrop-blur-lg"
-                            align="start" 
-                            sideOffset={5}
-                            side="right"
-                            style={{ 
-                              zIndex: 1000, 
-                              maxWidth: "300px",
-                              position: "absolute"
-                            }}
-                          >
-                            <div>
-                              <h4 className="text-lg font-medium flex items-center gap-2">
-                                {categoryIcons[skill.category as keyof typeof categoryIcons]}
-                                <span>{skill.name}</span>
-                              </h4>
-                              <div className="mt-2 opacity-90">{skill.description}</div>
-                            </div>
-                          </HoverCardContent>
-                        </HoverCard>
+                            </TooltipTrigger>
+                            <TooltipContent 
+                              side="right"
+                              className="z-50 glass border-none backdrop-blur-lg p-4 max-w-[300px] text-foreground"
+                            >
+                              <div>
+                                <h4 className="text-lg font-medium flex items-center gap-2">
+                                  {categoryIcons[skill.category as keyof typeof categoryIcons]}
+                                  <span>{skill.name}</span>
+                                </h4>
+                                <div className="mt-2 opacity-90">{skill.description}</div>
+                              </div>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
                       ))}
                   </div>
                 </motion.div>
@@ -221,33 +217,29 @@ export default function Skills() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 + 0.3 }}
                   >
-                    <HoverCard>
-                      <HoverCardTrigger asChild>
-                        <div className="cursor-pointer">
-                          <div className="p-3 bg-primary/10 rounded-full mb-2 mx-auto">
-                            {skill.icon}
+                    <TooltipProvider delayDuration={200}>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div className="cursor-pointer">
+                            <div className="p-3 bg-primary/10 rounded-full mb-2 mx-auto">
+                              {skill.icon}
+                            </div>
+                            <h4 className="font-medium">{skill.name}</h4>
                           </div>
-                          <h4 className="font-medium">{skill.name}</h4>
-                        </div>
-                      </HoverCardTrigger>
-                      <HoverCardContent 
-                        className="w-72 p-4 glass border-none backdrop-blur-lg"
-                        side="bottom"
-                        align="center"
-                        sideOffset={5}
-                        avoidCollisions={false}
-                        style={{ 
-                          zIndex: 1000, 
-                          maxWidth: "300px"
-                        }}
-                      >
-                        <h4 className="text-lg font-medium flex items-center gap-2 mb-2">
-                          {skill.icon}
-                          <span>{skill.name}</span>
-                        </h4>
-                        <p className="text-sm text-muted-foreground">{skill.description}</p>
-                      </HoverCardContent>
-                    </HoverCard>
+                        </TooltipTrigger>
+                        <TooltipContent 
+                          side="bottom"
+                          align="center"
+                          className="z-50 glass border-none backdrop-blur-lg p-4 max-w-[300px] text-foreground"
+                        >
+                          <h4 className="text-lg font-medium flex items-center gap-2 mb-2">
+                            {skill.icon}
+                            <span>{skill.name}</span>
+                          </h4>
+                          <p className="text-sm text-muted-foreground">{skill.description}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   </motion.div>
                 ))}
               </div>
