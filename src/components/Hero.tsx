@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="w-48 h-48 md:w-56 md:h-56 mb-8 relative">
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-blue-400 animate-pulse opacity-75 blur-xl"></div>
           <img
-            src="/lovable-uploads/041741cb-41e4-46d5-a18b-78f0a460a25a.png"
+            src="/lovable-uploads/a7e36108-9825-4cda-9afb-5aad19a08e88.png"
             alt="Sijan Thapa"
             className="w-full h-full object-cover rounded-full border-4 border-background relative z-10"
             style={{ objectPosition: "center top" }}

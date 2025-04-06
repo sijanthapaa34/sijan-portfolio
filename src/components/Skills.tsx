@@ -44,16 +44,22 @@ export default function Skills() {
       description: "Familiar with React components, props, and state management"
     },
     { 
-      name: "Flutter", 
-      level: "Basic", 
-      category: "Framework",
-      description: "Experience with cross-platform mobile app development using Dart and Flutter"
+      name: "HTML, CSS", 
+      level: "Intermediate", 
+      category: "Web",
+      description: "Understanding of web markup and styling"
     },
     { 
       name: "SQL (MySQL, Oracle)", 
       level: "Intermediate", 
       category: "Database",
       description: "Knowledge of complex queries, database design, and optimization"
+    },
+    { 
+      name: "NoSQL (MongoDB)", 
+      level: "Basic", 
+      category: "Database",
+      description: "Experience with document-oriented databases and NoSQL concepts"
     },
     { 
       name: "ORM (Hibernate, JPA)", 
@@ -66,12 +72,6 @@ export default function Skills() {
       level: "Intermediate", 
       category: "Web",
       description: "Building and consuming RESTful services"
-    },
-    { 
-      name: "HTML, CSS", 
-      level: "Basic", 
-      category: "Web",
-      description: "Understanding of web markup and styling"
     },
     { 
       name: "Git", 
@@ -181,9 +181,9 @@ export default function Skills() {
                           </HoverCardTrigger>
                           <HoverCardContent 
                             className="w-72 p-4 glass border-none backdrop-blur-lg"
-                            side="right"
-                            align="start" 
-                            sideOffset={10}
+                            side="bottom"
+                            align="center" 
+                            sideOffset={5}
                             avoidCollisions={true}
                             sticky="always"
                             style={{ zIndex: 1000 }}
