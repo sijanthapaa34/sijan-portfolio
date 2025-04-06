@@ -1,7 +1,5 @@
-
 import Section from "./Section";
 import { useState } from "react";
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { Code, Server, Database, Globe, Wrench, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
@@ -212,34 +210,18 @@ export default function Skills() {
                 {softSkills.map((skill, index) => (
                   <motion.div
                     key={skill.name}
-                    className="glass p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col items-center text-center h-full"
+                    className="glass p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 + 0.3 }}
                   >
-                    <TooltipProvider delayDuration={200}>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <div className="cursor-pointer">
-                            <div className="p-3 bg-primary/10 rounded-full mb-2 mx-auto">
-                              {skill.icon}
-                            </div>
-                            <h4 className="font-medium">{skill.name}</h4>
-                          </div>
-                        </TooltipTrigger>
-                        <TooltipContent 
-                          side="bottom"
-                          align="center"
-                          className="z-50 glass border-none backdrop-blur-lg p-4 max-w-[300px] text-foreground"
-                        >
-                          <h4 className="text-lg font-medium flex items-center gap-2 mb-2">
-                            {skill.icon}
-                            <span>{skill.name}</span>
-                          </h4>
-                          <p className="text-sm text-muted-foreground">{skill.description}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
+                    <div className="p-3 bg-primary/10 rounded-full mb-3 mx-auto">
+                      {skill.icon}
+                    </div>
+                    <h4 className="font-medium text-center mb-2">{skill.name}</h4>
+                    <p className="text-sm text-muted-foreground text-center mt-auto">
+                      {skill.description}
+                    </p>
                   </motion.div>
                 ))}
               </div>
