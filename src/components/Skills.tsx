@@ -86,22 +86,22 @@ export default function Skills() {
   const softSkills = [
     {
       name: "Leadership",
-      description: "Ability to guide and motivate teams towards achieving common goals",
+      description: "I am a strong leader who effectively guides teams toward goals, fostering collaboration and innovation while maintaining a clear vision and inspiring others to achieve their best.",
       icon: <Lightbulb className="text-primary" size={24} />
     },
     {
       name: "Problem Solving",
-      description: "Analytical approach to identifying and resolving complex issues",
+      description: "I excel in problem-solving by approaching challenges systematically, breaking down complex issues into manageable components, and applying creative thinking to develop effective solutions.",
       icon: <Lightbulb className="text-primary" size={24} />
     },
     {
       name: "Communication",
-      description: "Clear and effective verbal and written communication skills",
+      description: "I communicate effectively across different levels of technical understanding, clearly articulating complex concepts and actively listening to ensure mutual understanding and productive collaboration.",
       icon: <Lightbulb className="text-primary" size={24} />
     },
     {
       name: "Critical Thinking",
-      description: "Evaluating situations objectively and making informed decisions",
+      description: "I apply critical thinking by evaluating information objectively, considering multiple perspectives, and making well-reasoned decisions based on thorough analysis rather than assumptions.",
       icon: <Lightbulb className="text-primary" size={24} />
     }
   ];
@@ -181,12 +181,13 @@ export default function Skills() {
                           </HoverCardTrigger>
                           <HoverCardContent 
                             className="w-72 p-4 glass border-none backdrop-blur-lg"
-                            side="bottom"
-                            align="center" 
-                            sideOffset={5}
+                            side="right"
+                            align="start" 
+                            sideOffset={10}
+                            alignOffset={-5}
                             avoidCollisions={true}
-                            sticky="always"
-                            style={{ zIndex: 1000 }}
+                            collisionPadding={{ top: 10, right: 10, bottom: 10, left: 10 }}
+                            style={{ zIndex: 1000, maxWidth: "300px" }}
                           >
                             <div>
                               <h4 className="text-lg font-medium flex items-center gap-2">
@@ -229,13 +230,13 @@ export default function Skills() {
                         </div>
                       </HoverCardTrigger>
                       <HoverCardContent 
-                        className="w-72 p-4 glass border-none"
+                        className="w-72 p-4 glass border-none backdrop-blur-lg"
                         side="bottom"
                         align="center"
                         sideOffset={5}
                         avoidCollisions={true}
                         sticky="always"
-                        style={{ zIndex: 1000 }}
+                        style={{ zIndex: 1000, maxWidth: "300px" }}
                       >
                         <h4 className="text-lg font-medium flex items-center gap-2 mb-2">
                           {skill.icon}
