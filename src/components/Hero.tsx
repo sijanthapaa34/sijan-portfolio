@@ -20,10 +20,10 @@ export default function Hero() {
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="w-56 h-56 md:w-64 md:h-64 mb-8 relative">
+        <div className="w-64 h-64 md:w-72 md:h-72 mb-8 relative">
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-blue-400 animate-pulse opacity-75 blur-xl"></div>
           <img
-            src="/lovable-uploads/fc49a27a-79af-4675-a2be-1c9e21bb11ad.png"
+            src="/lovable-uploads/a8193b9c-0d52-44cd-a5f2-de08661c17db.png"
             alt="Sijan Thapa"
             className="w-full h-full object-cover rounded-full border-4 border-background relative z-10"
             style={{ objectPosition: "center center" }}

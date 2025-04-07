@@ -19,17 +19,6 @@ export default function Projects() {
   
   const projects: Project[] = [
     {
-      title: "Bank Management System (Console)",
-      description: "A console-based banking system built using core Java technologies.",
-      technologies: ["Java", "MySQL", "Hibernate (ORM)"],
-      highlights: [
-        "Implemented account management functionalities",
-        "Built transaction processing system",
-        "Designed database schema with Hibernate ORM",
-        "Created user authentication and authorization"
-      ]
-    },
-    {
       title: "Bank Management System (Web)",
       description: "Currently working on a web-based version of the banking system with expanded features and enhanced security.",
       technologies: ["Spring Boot", "React", "REST APIs", "MySQL", "Hibernate", "MVC"],
@@ -47,25 +36,39 @@ export default function Projects() {
       ]
     },
     {
-      title: "Simple Task Manager",
-      description: "A lightweight task management application to organize daily activities.",
-      technologies: ["Java", "JavaFX", "SQLite"],
+      title: "Job Listing Web App",
+      description: "A comprehensive job listing platform connecting job seekers with employers.",
+      technologies: ["Spring Boot", "React", "REST APIs", "MongoDB", "Hibernate", "MVC"],
       highlights: [
-        "Task creation, editing, and deletion",
-        "Priority levels and due dates",
-        "Local database for persistent storage",
-        "Simple and intuitive user interface"
+        "Job search functionality with filters",
+        "User profiles for job seekers and employers",
+        "Application tracking system",
+        "Resume upload and management",
+        "Notification system for application updates",
+        "Admin dashboard for managing listings"
       ]
     },
     {
-      title: "Library Management System",
-      description: "A system to manage book inventory and borrowing records.",
-      technologies: ["Java", "MySQL", "JDBC"],
+      title: "Bank Management System (Console)",
+      description: "A console-based banking system built using core Java technologies.",
+      technologies: ["Java", "MySQL", "Hibernate (ORM)"],
       highlights: [
-        "Book cataloging and inventory management",
-        "Member registration and management",
-        "Borrowing and returning functionality",
-        "Fine calculation for late returns" 
+        "Implemented account management functionalities",
+        "Built transaction processing system",
+        "Designed database schema with Hibernate ORM",
+        "Created user authentication and authorization"
+      ]
+    },
+    {
+      title: "Employee Management System",
+      description: "A web-based system to manage employee information and HR processes.",
+      technologies: ["Spring Boot", "React", "REST APIs", "MySQL", "Hibernate", "MVC"],
+      highlights: [
+        "Employee profile management",
+        "Attendance tracking",
+        "Leave management",
+        "Performance evaluation",
+        "Payroll processing" 
       ]
     },
     {

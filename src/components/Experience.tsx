@@ -1,4 +1,3 @@
-
 import Section from "./Section";
 
 export default function Experience() {
@@ -9,7 +8,7 @@ export default function Experience() {
           {/* Timeline line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary/30"></div>
           
-          {/* Internship experience */}
+          {/* Spring Boot & RESTful API Development */}
           <div className="relative z-10">
             <div className="flex items-center justify-center mb-8">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
@@ -18,37 +17,54 @@ export default function Experience() {
             </div>
             
             <div className="glass rounded-2xl p-8 mb-12 max-w-xl mx-auto animate-fade-in">
-              <h3 className="text-xl font-medium mb-2">Full-Stack Development Experience</h3>
-              <p className="text-muted-foreground mb-6">Java Internship Projects</p>
+              <h3 className="text-xl font-medium mb-2">Spring Boot & RESTful API Development</h3>
+              <p className="text-muted-foreground mb-6">Full-Stack Development Experience</p>
               
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-medium mb-2">Bank Management System</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Personal Project</p>
-                  <p>
-                    Designed and developed a comprehensive banking system with both console and web-based 
-                    interfaces, implementing core banking functionalities using Java technologies.
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">RESTful API Development</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Academic Project</p>
-                  <p>
-                    Implemented RESTful APIs using Spring Boot for various applications, focusing on
-                    proper architecture and secure data handling.
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Database Design & ORM Implementation</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Course Project</p>
-                  <p>
-                    Created efficient database schemas and implemented ORM solutions using Hibernate and JPA
-                    for seamless data operations.
-                  </p>
-                </div>
+              <p>
+                Hands-on experience building scalable backend services using Spring Boot and designing RESTful APIs 
+                with proper layering, validations, and secure endpoints. Proficient in API versioning, 
+                request/response optimization, and exception handling.
+              </p>
+            </div>
+          </div>
+          
+          {/* Hibernate & Database Management */}
+          <div className="relative z-10">
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-4 h-4 rounded-full bg-background animate-pulse"></div>
               </div>
+            </div>
+            
+            <div className="glass rounded-2xl p-8 mb-12 max-w-xl mx-auto animate-fade-in">
+              <h3 className="text-xl font-medium mb-2">Hibernate & Database Management</h3>
+              <p className="text-muted-foreground mb-6">ORM & Data Layer Expertise</p>
+              
+              <p>
+                Skilled in designing normalized relational databases (MySQL, MongoDB) and implementing ORM 
+                solutions using Hibernate and JPA. Experience includes entity mapping, one-to-many/many-to-many 
+                relationships, lazy vs eager fetching, and performance optimization.
+              </p>
+            </div>
+          </div>
+          
+          {/* Frontend Integration with React */}
+          <div className="relative z-10">
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-4 h-4 rounded-full bg-background animate-pulse"></div>
+              </div>
+            </div>
+            
+            <div className="glass rounded-2xl p-8 mb-12 max-w-xl mx-auto animate-fade-in">
+              <h3 className="text-xl font-medium mb-2">Frontend Integration with React</h3>
+              <p className="text-muted-foreground mb-6">Full-Stack Web Development</p>
+              
+              <p>
+                Capable of integrating React-based frontends with Java Spring Boot backends through secure REST APIs. 
+                Familiar with state management, dynamic UI rendering, and building responsive, user-friendly interfaces 
+                that communicate efficiently with backend services.
+              </p>
             </div>
           </div>
           

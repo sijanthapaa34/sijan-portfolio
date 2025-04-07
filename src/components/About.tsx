@@ -26,19 +26,19 @@ export default function About() {
               className="glass flex items-center gap-3 group hover:scale-105 transition-all duration-300" 
               onClick={() => setIsCVModalOpen(true)}
             >
-              <FileText size={20} className="group-hover:animate-pulse" />
+              <FileText size={22} className="group-hover:animate-pulse" />
               <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
                 View CV
               </span>
             </Button>
             
             <a 
-              href="/lovable-uploads/fc49a27a-79af-4675-a2be-1c9e21bb11ad.png" 
+              href="/lovable-uploads/a8193b9c-0d52-44cd-a5f2-de08661c17db.png" 
               target="_blank" 
               rel="noopener noreferrer"
               className="glass flex items-center gap-3 group hover:scale-105 transition-all duration-300 py-2 px-4 rounded-md"
             >
-              <ExternalLink size={20} className="text-primary group-hover:animate-pulse" />
+              <ExternalLink size={22} className="text-primary group-hover:animate-pulse" />
               <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
                 Open CV in New Tab
               </span>
