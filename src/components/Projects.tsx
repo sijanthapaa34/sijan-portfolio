@@ -2,7 +2,7 @@
 import Section from "./Section";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink, Code, Server, Database } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Code, Server, Database, Shield, Lock } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 
@@ -31,14 +31,74 @@ export default function Projects() {
     },
     {
       title: "Bank Management System (Web)",
-      description: "Currently working on a web-based version of the banking system with expanded features.",
+      description: "Currently working on a web-based version of the banking system with expanded features and enhanced security.",
       technologies: ["Spring Boot", "React", "REST APIs", "MySQL", "Hibernate", "MVC"],
       highlights: [
         "Developing a web-based interface for better user experience",
         "Implementing Spring Boot framework for backend",
         "Building RESTful APIs for client-server communication",
         "Following the MVC architecture pattern",
-        "Using React for the frontend interface"
+        "Using React for the frontend interface",
+        "Multiple authentication systems (email/password, OAuth)",
+        "Password hashing and encryption for secure data storage",
+        "Role-based access control (customer, staff, manager)",
+        "Sensitive information protection with HTTPS",
+        "Proper authorization checks for different system roles"
+      ]
+    },
+    {
+      title: "Simple Task Manager",
+      description: "A lightweight task management application to organize daily activities.",
+      technologies: ["Java", "JavaFX", "SQLite"],
+      highlights: [
+        "Task creation, editing, and deletion",
+        "Priority levels and due dates",
+        "Local database for persistent storage",
+        "Simple and intuitive user interface"
+      ]
+    },
+    {
+      title: "Library Management System",
+      description: "A system to manage book inventory and borrowing records.",
+      technologies: ["Java", "MySQL", "JDBC"],
+      highlights: [
+        "Book cataloging and inventory management",
+        "Member registration and management",
+        "Borrowing and returning functionality",
+        "Fine calculation for late returns" 
+      ]
+    },
+    {
+      title: "Weather App",
+      description: "A simple weather application that fetches and displays current weather data.",
+      technologies: ["Java", "Spring Boot", "REST API", "React"],
+      highlights: [
+        "Integration with external weather API",
+        "Location-based weather information",
+        "5-day forecast display",
+        "Temperature, humidity, and wind speed data"
+      ]
+    },
+    {
+      title: "E-commerce API",
+      description: "Backend API for a simple e-commerce platform.",
+      technologies: ["Java", "Spring Boot", "MySQL", "REST API"],
+      highlights: [
+        "Product catalog and inventory management",
+        "User authentication and authorization",
+        "Shopping cart functionality",
+        "Order processing system"
+      ]
+    },
+    {
+      title: "Student Information System",
+      description: "A system to manage student records and academic information.",
+      technologies: ["Java", "Hibernate", "MySQL", "Thymeleaf"],
+      highlights: [
+        "Student profile management",
+        "Course registration and grade tracking",
+        "Attendance recording",
+        "Academic progress reporting"
       ]
     }
   ];
@@ -58,6 +118,10 @@ export default function Projects() {
       return <Server className="text-primary" size={16} />;
     } else if (tech.toLowerCase().includes("sql") || tech.toLowerCase().includes("hibernate")) {
       return <Database className="text-primary" size={16} />;
+    } else if (tech.toLowerCase().includes("auth") || tech.toLowerCase().includes("security")) {
+      return <Shield className="text-primary" size={16} />;
+    } else if (tech.toLowerCase().includes("encrypt") || tech.toLowerCase().includes("hash")) {
+      return <Lock className="text-primary" size={16} />;
     } else {
       return <Code className="text-primary" size={16} />;
     }
@@ -70,7 +134,7 @@ export default function Projects() {
           <div className="glass rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
             <h3 className="text-xl font-medium mb-6 pb-2 border-b">My Projects</h3>
             
-            <div className="space-y-4">
+            <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
               {projects.map((project, index) => (
                 <button
                   key={index}
@@ -91,6 +155,15 @@ export default function Projects() {
                   </div>
                 </button>
               ))}
+              <div className="text-center text-sm text-muted-foreground mt-4">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="font-medium">Total Projects:</span> 
+                  <span className="bg-primary/20 text-primary px-2 py-1 rounded-full">{projects.length}</span>
+                </div>
+                <p className="mt-2">
+                  5 small projects completed
+                </p>
+              </div>
             </div>
           </div>
         </div>
