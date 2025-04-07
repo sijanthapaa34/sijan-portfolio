@@ -26,7 +26,7 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
           
           <div className="relative z-10 w-full h-full flex items-center justify-center">
             <img 
-              src="/lovable-uploads/cd20738c-5551-464d-b92b-50e68b9ae6e9.png" 
+              src="/lovable-uploads/CV Sijan Thapa.pdf" 
               alt="CV" 
               className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl animate-scale-in"
             />
