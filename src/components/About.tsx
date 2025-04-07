@@ -33,7 +33,7 @@ export default function About() {
             </Button>
             
             <a 
-              href="/lovable-uploads/da5d6085-7168-43e6-87a8-7489cb7888b8.png" 
+              href="/lovable-uploads/cd20738c-5551-464d-b92b-50e68b9ae6e9.png" 
               target="_blank" 
               rel="noopener noreferrer"
               className="glass flex items-center gap-3 group hover:scale-105 transition-all duration-300 py-2 px-4 rounded-md"

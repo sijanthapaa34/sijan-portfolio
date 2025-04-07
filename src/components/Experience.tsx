@@ -1,3 +1,4 @@
+
 import Section from "./Section";
 
 export default function Experience() {
@@ -18,7 +19,7 @@ export default function Experience() {
             
             <div className="glass rounded-2xl p-8 mb-12 max-w-xl mx-auto animate-fade-in">
               <h3 className="text-xl font-medium mb-2">Spring Boot & RESTful API Development</h3>
-              <p className="text-muted-foreground mb-6">Full-Stack Development Experience</p>
+              <p className="text-muted-foreground mb-6">Backend Development Expertise</p>
               
               <p>
                 Hands-on experience building scalable backend services using Spring Boot and designing RESTful APIs 
