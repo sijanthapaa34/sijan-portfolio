@@ -33,7 +33,7 @@ export default function About() {
             </Button>
             
             <a 
-              href="/lovable-uploads/CV Sijan Thapa.pdf" 
+              href="/icons/CV Sijan Thapa.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="glass flex items-center gap-3 group hover:scale-105 transition-all duration-300 py-2 px-4 rounded-md"

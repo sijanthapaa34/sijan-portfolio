@@ -96,7 +96,7 @@ export default function Projects() {
     {
       title: "Student Information System",
       description: "A system to manage student records and academic information.",
-      technologies: ["Java", "Hibernate", "MySQL", "Thymeleaf"],
+      technologies: ["Java", "Hibernate", "MySQL"],
       highlights: [
         "Student profile management",
         "Course registration and grade tracking",
@@ -163,9 +163,6 @@ export default function Projects() {
                   <span className="font-medium">Total Projects:</span> 
                   <span className="bg-primary/20 text-primary px-2 py-1 rounded-full">{projects.length}</span>
                 </div>
-                <p className="mt-2">
-                  5 small projects completed
-                </p>
               </div>
             </div>
           </div>
